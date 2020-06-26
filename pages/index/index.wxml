@@ -1,0 +1,17 @@
+<!--index.wxml-->
+<view class="allbody">
+  
+  <view class="head">
+
+  </view>
+
+    <view class="image_box"> 
+    <image mode="widthFix" class="pic_property" src="https://aihui1983.ml:9578/images/2020/06/25/nature10.png"></image>
+    </view>
+
+  <button bindtap="bindViewTap" type="primary" class="button_property"> 选取图片 </button>
+
+
+
+
+</view>
