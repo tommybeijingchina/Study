@@ -1,0 +1,12 @@
+/* miniprogram/pages/list/list.wxss */
+
+
+
+.allbody{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+
+
+}

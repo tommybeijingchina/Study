@@ -1,0 +1,24 @@
+
+<view class="allbody">
+
+
+<view wx:if="{{showImageFlag}}" class="showimage">
+  <text bindtap="bindtapOnAdd" class="addflag"> + </text>
+  <text class="addtext">点击上传图片</text>
+</view>
+<image  mode="aspectFit" wx:else class="imagebox" src="{{form.tempFilePath}}"></image>
+
+<view class="inputareashell">
+      <textarea class="inputarea"
+        bindinput="onInputText"
+      placeholder="随便说点啥吧"/>
+
+
+
+</view>
+
+
+<button bindtap="saveFileToCloud" class="buttonarea">保存</button>
+
+
+</view>

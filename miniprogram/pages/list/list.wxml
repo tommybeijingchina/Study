@@ -1,0 +1,16 @@
+
+
+
+<view class="allbody">
+
+  <block wx:for="{{list}}">
+  <text > {{item.comment}} </text>
+  <image src="{{item.fileid}}"></image>
+
+
+
+  </block>
+
+
+
+</view>
