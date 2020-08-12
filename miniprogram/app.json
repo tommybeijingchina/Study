@@ -1,7 +1,10 @@
 {
   "pages": [
-    "pages/list/list",
-    "pages/commentadd/commentadd"
+    "pages/commentadd/commentadd",
+    "pages/list/list"
+
+
+  
 
 
 

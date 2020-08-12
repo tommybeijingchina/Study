@@ -5,7 +5,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list:[],
+
+    list: [],
+    tempmonth: [],
+    tempdate: [],
+    temphours: [],
+    tempminutes: [],
+    tempseconds: [],
+
+
   },
 
   /**
@@ -16,40 +24,72 @@ Page({
     this.getFromDatabase();
   },
 
-  getFromDatabase:function(){
+
+
+  getFromDatabase: function () {
 
     var that = this;
 
+    var db = wx.cloud.database(); //创建一个数据库实例
+
+    db.collection('testtable').get({
+
+      success: function (res) {
+
+        var i = 0;
+
+        var montharry = [];
+        var datearry = [];
+        var hoursarry = [];
+        var minutesarry = [];
+        var secondsarry = [];
 
 
-    console.log("enter......")
+        for (i = 0; i < res.data.length; i++) {
 
-      var db = wx.cloud.database();
+          montharry[i] = res.data[i].mytime.getMonth() + 1;
 
-      db.collection('testtable').get({
+          datearry[i] = res.data[i].mytime.getDate();
 
-          success:function(res){
+          hoursarry[i] = res.data[i].mytime.getHours();
 
-            // console.log(res.data);
-              that.setData({
-                list:res.data,
-              })
+          minutesarry[i] = res.data[i].mytime.getMinutes();
 
-          }
+          secondsarry[i] = res.data[i].mytime.getSeconds();
 
+          console.log("for in month=", montharry[i]);
+          console.log("for in date =", datearry[i]);
+          console.log("for in hour=", hoursarry[i]);
+          console.log("for in minute=", minutesarry[i]);
+          console.log("for in second =", secondsarry[i]);
 
-      });
-
-// setTimeout(() => {
-//   console.log(that.data.list);
-
-//   },300);
-
-},
+        }
 
 
+        that.setData({
+          list: res.data,
+          tempmonth: montharry,
+          tempdate: datearry,
+          temphours: hoursarry,
+          tempminutes: minutesarry,
+          tempseconds: secondsarry,
+
+        });
 
 
- 
+      },
+
+      fail: function (err) {
+        console.log(err);
+      }
+
+    });
+
+  },
+
+
+
+
+
 
 })

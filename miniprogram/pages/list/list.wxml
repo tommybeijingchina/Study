@@ -1,16 +1,32 @@
 
 
 
-<view class="allbody">
+<view class="container">
 
-  <block wx:for="{{list}}">
-  <text > {{item.comment}} </text>
-  <image src="{{item.fileid}}"></image>
-
-
-
-  </block>
+  <view class="box_shell">
+     <scroll-view scroll-y="true"  class="box_scrollview">
+        <view class="box_core" >
+      
+         <block wx:for="{{list}}">
 
 
+            <view class="item_time">
 
+             <text class="item_day">{{tempdate[index]}}/</text>
+              <text decode = "{{true}}" class="yearmonte">{{tempmonth[index]}}  &nbsp;&nbsp;  {{temphours[index]}}:{{tempminutes[index]}}:{{tempseconds[index]}}</text>
+             
+            </view>
+
+            <view class="item_text">
+             {{item.comment}}
+            </view>
+            <image src="{{item.fileid}}"></image>
+
+          </block>
+        </view>
+
+    </scroll-view>
+
+
+</view>
 </view>
