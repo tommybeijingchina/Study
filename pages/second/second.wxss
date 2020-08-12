@@ -1,0 +1,56 @@
+/* pages/second/index.wxss */
+page{
+  height: 100%;
+}
+
+.allbody{
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.editor{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.canvasproperty{
+  height: 100%;
+  width: 100%;
+
+
+
+}
+
+
+.template{
+
+  height: 90px;
+
+  
+
+
+
+}
+.animal{
+  margin-top: 5rpx;
+  width: 80px;
+  height: 80px;
+  
+
+}
+.buttonproperty{
+
+
+  margin-bottom: 50px;
+  margin-top: 10px;
+}
+
+.clickStyle{
+  background-color: linen;
+  border-radius: 50%;
+}

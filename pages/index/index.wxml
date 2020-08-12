@@ -1,17 +1,27 @@
 <!--index.wxml-->
 <view class="allbody">
   
-  <view class="head">
+  <view class="head"> 
 
-  </view>
+拼图小工具ver3.0体验版
+  
+   </view>
+
+
+
 
     <view class="image_box"> 
-    <image mode="widthFix" class="pic_property" src="https://aihui1983.ml:9578/images/2020/06/25/nature10.png"></image>
+
+       <image mode="widthFix" class="pic_property" src="https://746f-tommyhuanjing-1302579770.tcb.qcloud.la/tommyzhangself.png?sign=099e8091269989b412c2db76cdff5599&t=1594559767"/>
     </view>
 
   <button bindtap="bindViewTap" type="primary" class="button_property"> 选取图片 </button>
 
-
+  
+    <text class="banner">
+     选择或拍一张图片，再放点自己喜欢的小动物，贴个图.
+   
+   </text>
 
 
 </view>

@@ -1,0 +1,42 @@
+<!--pages/second/index.wxml-->
+
+<view class="allbody">
+ 
+  <view class="editor" id="editorId">
+  
+    <canvas style="height:{{canvasHeight}}px;width:{{canvasWidth}}px;" 
+    
+         canvas-id="tommyCanvas"  
+     
+        class="canvasproperty"
+        
+        catchtouchstart="onTouchStart"
+        
+        catchtouchmove="onTouchMove"
+        
+        />
+     
+
+  
+  </view >
+  
+  
+  <swiper circular="true"  display-multiple-items="{{4}}" class = "template" > 
+
+    <swiper-item wx:for="{{imageList}}">
+
+      <view bindtap="animalTap" data-zzt="{{index}}" 
+      class="{{index === clickNumber ? 'clickStyle' :' ' }}">
+         <image mode="widthFix" class="animal" src="{{item}}"/>
+      </view>
+
+    </swiper-item>
+
+
+  </swiper> 
+
+
+
+  <button bindtap="saveIt" type="primary" class="buttonproperty">保存图片</button>
+
+</view>

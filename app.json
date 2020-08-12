@@ -1,17 +1,14 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/second/index",
+    "pages/second/second",
     "pages/logs/logs"
-
-
-
 
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "Tommy's mini program.",
     "navigationBarTextStyle": "black"
   },
   "style": "v2",
