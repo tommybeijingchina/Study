@@ -1,3 +1,7 @@
+
+
+<!-- 这是把整个页面包括起来的盒子，我的小程序里面的class全部用allbody -->
+
 <view class="allbody">
 
 	<block wx:if="{{showImageFlag}}">
