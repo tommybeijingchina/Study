@@ -14,7 +14,7 @@ page{
 }
 
 
-.showimage{
+.showAddFlagBox{
 
   box-sizing: border-box;
   background-color: #eff1f3;
@@ -27,7 +27,9 @@ page{
   align-items: center;
 }
 
-.addflag{
+
+/* 对加号的样式定义 */
+.addFlag{
 font-size: 100px;
 color: #ddd;
 line-height: 1;
@@ -39,14 +41,14 @@ line-height: 1;
 }
 
 
-.imagebox{
+.imageBox{
 
     width: 355px;
     height: 180px;
 
 }
 
-.inputareashell{
+.inputAreaShell{
   box-sizing: border-box;
   margin: 10px;
   flex:1;

@@ -4,6 +4,9 @@
 
 var filename ="tommy_";
 
+// page方法的实参，是一个对象，这个对象的若干属性需要定义，这个定义的过程就是小程序的编程过程；
+
+
 Page({
 
   /**
@@ -11,7 +14,7 @@ Page({
    */
   data: {
 
-    showImageFlag:true,//显示窗口隐藏显示标志
+    showAddFlagBox:true,//显示窗口隐藏显示标志
 
     form:{    //当前表单
         tempFilePath:"",//图片文件临时路径
@@ -21,11 +24,14 @@ Page({
   },
 
 
-// 这个函数的重点是保存所选择图片的临时路径，并设置那个showImageFlag为false
+// 这个函数的重点是保存所选择图片的临时路径，并设置那个showAddFlagBox为false
+ 
   bindtapOnAdd:function(){
 
    var that = this;//this is very importance
 
+
+// 注意这个wx.chooseImage的实参也是对象，其中的sucess属性是特殊指定，sucess是关键字
     wx.chooseImage({
       count:1,
       sizeType:['original','compressed'],
@@ -33,9 +39,14 @@ Page({
       
       success:function(res){
 
+        console.log(res);
+
+        // 执行数据绑定，这是在js和wxml中传递数据改变显示方式的方法
+        // 注意下文中绑定数据的属性是用双引号括起来的
+        
         that.setData({
-          showImageFlag:false,
-          "form.tempFilePath":res.tempFilePaths[0]//保存图片临时路径
+          "showAddFlagBox":false,
+          "form.tempFilePath": res.tempFilePaths[0]
         });
 
       }
@@ -45,15 +56,20 @@ Page({
 
 
 //保存输入内容到form.comment中
-  onInputText:function(event){
 
-       this.setData({"form.comment":event.detail.value});
+  onInputTextArea:function(event){
+
+       this.setData({
+         "form.comment":event.detail.value
+        });
 
   },
 
+
   getTimeString:function(){
     //返回yyyymmddhhmmss的字符串
-    var today = new Date();
+    var today = new Date();//today是一个日期对象，而不是时间戳！
+
     var year = today.getFullYear();
     var month = today.getMonth()+1;
     var day = today.getDate();
@@ -65,6 +81,7 @@ Page({
     if(day<10) day= "0"+day;
     if(month<10) month = "0"+month;
 
+    //后面这个""代表后续按字符串相加
     var tempfilename= ""+year+month+day+hour+minute+sec;
 
    // console.log(tempfilename);
@@ -105,17 +122,13 @@ Page({
       return;
     };
  
-        filename =filename+this.getTimeString();
-       
-    
-        // Date.now();
-
+    filename =filename+this.getTimeString();
 
     // save file to cloud storage
 
     wx.cloud.uploadFile({
-      cloudPath: filename,//file name
-      filePath: form.tempFilePath, // 文件临时路径
+      cloudPath: filename,          //file name
+      filePath: form.tempFilePath,  // 文件临时路径
 
       success: res => {
         
@@ -168,102 +181,13 @@ Page({
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //以下是学习云函数之前写的程序
-
-    // var db = wx.cloud.database();//创建数据库实例
-
-
-    // db.collection('testtable').add({
-   
-    //   data:{
-    //     fileid:fileID,
-    //     comment:form.comment
-    //   }
-    // })
-    // .then(res => {
-    //   // console.log("上传云端成功！")
-    //     wx.showToast({
-    //       title: '保存成功',
-    //     })
-    // })
-    // .catch(console.error)
+  
+ 
 
 
   },
-
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
 
   
-  onLoad: function (options) {
-    
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
 
 
-
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

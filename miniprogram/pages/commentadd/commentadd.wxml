@@ -3,26 +3,27 @@
 <!-- 这是把整个页面包括起来的盒子，我的小程序里面的class全部用allbody -->
 
 <view class="allbody">
-
-	<block wx:if="{{showImageFlag}}">
-		<view class="showimage">
-			<text bindtap="bindtapOnAdd" class="addflag"> + </text>
+	<!-- 后续是个block，if showImageFlag==true时，执行这个wxml -->
+	<block wx:if="{{showAddFlagBox}}">
+		
+		<view class="showAddFlagBox">
+			<text bindtap="bindtapOnAdd" class="addFlag"> + </text>
 			<text class="addtext">点击上传图片</text>
+			<!-- text组件就是文本 -->
 		</view>
+
 	</block>
-
-
 
 
 	<block wx:else>
-		<image mode="aspectFit" class="imagebox" src="{{form.tempFilePath}}"></image>
+		<image mode="aspectFit" class="imageBox" src="{{form.tempFilePath}}"></image>
 	</block>
 
 
 
-	<view class="inputareashell">
+	<view class="inputAreaShell">
 
-		<textarea class="inputarea" bindinput="onInputText" placeholder="随便说点啥吧" />
+		<textarea class="inputarea" bindinput="onInputTextArea" placeholder="随便说点啥吧" />
 
 	</view>
 

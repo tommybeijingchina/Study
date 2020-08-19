@@ -1,28 +1,25 @@
+
 // 云函数入口文件
-const cloud = require('wx-server-sdk');
 
-cloud.init();
+const cloud = require('wx-server-sdk');//固定格式
 
-var db = cloud.database();//
+cloud.init();                          //固定格式
+
+var db = cloud.database();             //这个应该是打开数据库的意思了
 
 // 云函数入口函数
 exports.main = async (event, context) => {
 
-  // var timestamp = Date.parse(new Date());  
-
-  // timestamp = timestamp / 1000;  
-
-  // console.log("timestamp",timestamp);
-
+  
 
   return new Promise ( function(resolve,reject){
 
     db.collection('testtable').add({
 
       data:{
-        fileid:event.fileIDforCloud,
-        comment:event.commentforCloud,
-        mytime:new Date(),
+        fileid:     event.fileIDforCloud,
+        comment:    event.commentforCloud,
+        mytime:     new Date(),
 
       },
       // Date.now() 时间戳赋值
